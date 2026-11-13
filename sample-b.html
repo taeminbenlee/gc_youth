@@ -1,0 +1,295 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>고촌중앙교회 청년부 초대장</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Gowun+Batang&family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans+KR:wght@400;500;600&display=swap">
+<style>
+/* Layout: 모바일 청첩장의 순서(표지, 인사말, 달력, 사진, 오시는 길, 연락처)를 어두운 면과 밝은 면을 번갈아 배치. */
+:root {
+  color-scheme: dark;
+  --bg: #0b0b0b; --surface: #212121; --line: #353535;
+  --fg: #ffffff; --fg-2: #b9b9b9; --fg-3: #8a8a8a;
+  --paper: #ededed; --ink: #0b0b0b; --ink-2: #4a4a4a; --ink-line: #c9c9c9;
+  --cta: #f36458; --hover: #0052ef; --focus: #55beff;
+  --sans: "IBM Plex Sans KR", ui-sans-serif, system-ui, "Apple SD Gothic Neo", "Malgun Gothic", sans-serif;
+  --mono: "IBM Plex Mono", ui-monospace, Menlo, Consolas, monospace;
+  --letter: "Gowun Batang", "Apple SD Gothic Neo", "Batang", serif;
+}
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
+body { margin: 0; background: var(--bg); color: var(--fg); font: 400 16px/1.6 var(--sans); word-break: keep-all; overflow-wrap: break-word; }
+a { color: inherit; text-decoration: none; }
+:focus-visible { outline: 2px solid var(--focus); outline-offset: 2px; }
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+
+.wrap { width: 100%; max-width: 520px; margin-inline: auto; padding-left: max(24px, env(safe-area-inset-left, 0px)); padding-right: max(24px, env(safe-area-inset-right, 0px)); }
+.label { font: 400 12px/1.4 var(--mono); letter-spacing: .06em; word-spacing: -.35em; text-transform: uppercase; color: var(--fg-3); }
+section { padding-block: 64px; }
+h2 { margin: 8px 0 0; font-size: clamp(32px, 9vw, 40px); line-height: 1.16; font-weight: 400; letter-spacing: -.035em; text-wrap: balance; }
+
+.notice { background: var(--surface); color: var(--fg-2); font-size: 13px; line-height: 1.5; padding-block: 8px; text-align: center; }
+
+/* 표지 */
+.cover { position: relative; overflow: hidden; padding-block: 72px 40px; background:
+  radial-gradient(90% 60% at 72% 8%, rgba(0,82,239,.85), transparent 70%),
+  radial-gradient(rgba(255,255,255,.14) 1px, transparent 1.5px) 0 0 / 9px 9px,
+  var(--bg); }
+.cover .wrap { display: grid; gap: 24px; }
+.cover .label { color: #fff; }
+.cover h1 { margin: 88px 0 0; font-size: clamp(64px, 20vw, 104px); line-height: 1.04; font-weight: 400; letter-spacing: -.05em; }
+.cover p { margin: 0; font-size: 18px; line-height: 1.55; }
+.meta { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 4px 16px; padding-top: 16px; border-top: 1px solid rgba(255,255,255,.35); font: 400 13px/1.5 var(--mono); font-variant-numeric: tabular-nums; }
+
+/* 인사말 */
+.letter { background: var(--paper); color: var(--ink); }
+.letter .label { color: var(--ink-2); }
+.letter .body { margin-top: 24px; font: 400 18px/1.95 var(--letter); }
+.letter .body p { margin: 0 0 16px; }
+.sign { display: flex; align-items: center; gap: 12px; margin-top: 32px; padding-top: 16px; border-top: 1px solid var(--ink-line); }
+.sign .ph { width: 52px; height: 52px; border-radius: 50%; flex: none; }
+.sign b { display: block; font-weight: 500; }
+.sign span { color: var(--ink-2); font-size: 14px; }
+.verse { margin-top: 32px; font: 400 15px/1.8 var(--letter); color: var(--ink-2); }
+.verse cite { display: block; font: 400 12px/1.4 var(--mono); }
+
+/* 달력 */
+.dday { display: flex; align-items: baseline; gap: 12px; margin-top: 16px; }
+.dday b { font-weight: 400; font-size: clamp(64px, 18vw, 88px); line-height: 1; letter-spacing: -.04em; color: var(--cta); font-variant-numeric: tabular-nums; white-space: nowrap; }
+.dday span { color: var(--fg-2); font-size: 15px; line-height: 1.4; }
+.cal { margin-top: 32px; }
+.cal-title { font: 500 13px/1.4 var(--mono); margin-bottom: 8px; }
+.cal-grid { display: grid; grid-template-columns: repeat(7, minmax(0, 1fr)); text-align: center; font: 400 14px/1 var(--mono); font-variant-numeric: tabular-nums; }
+.cal-grid > * { display: flex; align-items: center; justify-content: center; aspect-ratio: 1; max-width: 100%; }
+.cal-grid .dow { color: var(--fg-3); font-size: 12px; aspect-ratio: auto; padding-bottom: 8px; }
+.cal-grid .sun { color: var(--cta); }
+.cal-grid .past { color: #5c5c5c; }
+.cal-grid .target { background: var(--cta); color: #fff; border-radius: 99999px; font-weight: 500; }
+.times { margin: 32px 0 0; border-top: 1px solid var(--line); }
+.times div { display: grid; grid-template-columns: 96px minmax(0, 1fr); gap: 12px; padding-block: 12px; border-bottom: 1px solid var(--line); align-items: baseline; }
+.times dt { font: 400 13px/1.5 var(--mono); color: var(--fg-2); font-variant-numeric: tabular-nums; }
+.times dd { margin: 0; }
+.times small { display: block; color: var(--fg-2); font-size: 14px; }
+
+/* 사진 */
+.ph { position: relative; overflow: hidden; background:
+  radial-gradient(circle at var(--x, 30%) var(--y, 30%), #6b6b6b, transparent 62%),
+  radial-gradient(#3d3d3d 1px, transparent 1.5px) 0 0 / 9px 9px, #171717; }
+figure { margin: 0; }
+.ph figcaption { position: absolute; left: 12px; right: 12px; bottom: 10px; font: 400 12px/1.4 var(--mono); color: #fff; }
+.gallery { display: grid; grid-template-columns: repeat(6, minmax(0, 1fr)); gap: 4px; margin-top: 24px; }
+.gallery .ph { border-radius: 3px; max-width: 100%; }
+.gallery .a { grid-column: span 6; aspect-ratio: 16 / 10; }
+.gallery .b { grid-column: span 3; aspect-ratio: 1; }
+.gallery .c { grid-column: span 2; aspect-ratio: 1; }
+
+/* 오시는 길 */
+.way { border-top: 1px solid var(--surface); }
+.map { display: block; width: 100%; height: auto; margin-top: 24px; background: #141414; border: 1px solid var(--line); border-radius: 6px; }
+.addr { margin-top: 16px; font-size: 18px; letter-spacing: -.01em; }
+.addr small { display: block; color: var(--fg-2); font-size: 14px; }
+.btns { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 8px; margin-top: 16px; }
+.pill { display: inline-flex; align-items: center; justify-content: center; min-height: 44px; padding: 8px 12px; border: 1px solid var(--line); border-radius: 99999px; background: var(--surface); color: var(--fg); font: 500 14px/1.2 var(--sans); cursor: pointer; transition: background-color .15s, border-color .15s, color .15s; white-space: nowrap; }
+.pill.primary { background: var(--cta); border-color: var(--cta); color: #fff; }
+@media (hover: hover) { .pill:hover { background: var(--hover); border-color: var(--hover); color: #fff; } }
+.how { margin: 24px 0 0; display: grid; gap: 8px; color: var(--fg-2); font-size: 15px; }
+.how div { display: grid; grid-template-columns: 56px minmax(0, 1fr); gap: 8px; }
+.how dt { font: 400 13px/1.7 var(--mono); color: var(--fg-3); }
+.how dd { margin: 0; }
+
+/* 연락처 */
+.contact { background: var(--paper); color: var(--ink); }
+.contact .label { color: var(--ink-2); }
+.contact ul { list-style: none; margin: 24px 0 0; padding: 0; border-top: 1px solid var(--ink-line); }
+.contact li { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 8px 12px; padding-block: 14px; border-bottom: 1px solid var(--ink-line); }
+.contact .who { min-width: 0; }
+.contact .who span { display: block; font: 400 12px/1.5 var(--mono); color: var(--ink-2); }
+.contact .who b { font-weight: 500; font-size: 18px; letter-spacing: -.01em; }
+.contact .who i { display: block; font: 400 14px/1.5 var(--mono); color: var(--ink-2); user-select: all; font-variant-numeric: tabular-nums; }
+.contact .do { display: flex; gap: 6px; }
+.contact .pill { background: var(--ink); border-color: var(--ink); color: #fff; min-width: 60px; }
+@media (hover: hover) { .contact .pill:hover { background: var(--hover); border-color: var(--hover); } }
+
+/* 처음 오는 날 */
+.flow { list-style: none; margin: 24px 0 0; padding: 0; counter-reset: s; }
+.flow li { counter-increment: s; display: grid; grid-template-columns: 40px minmax(0, 1fr); padding-block: 16px; border-bottom: 1px solid var(--line); }
+.flow li:first-child { border-top: 1px solid var(--line); }
+.flow li::before { content: counter(s); font: 500 14px/1.6 var(--mono); color: var(--cta); }
+.flow b { display: block; font-weight: 500; font-size: 17px; }
+.flow span { color: var(--fg-2); font-size: 15px; }
+
+/* 마무리 */
+.end { padding-block: 64px 72px; border-top: 1px solid var(--surface); }
+.end h2 { margin-top: 0; }
+.end p { color: var(--fg-2); margin: 16px 0 24px; }
+.end .btns { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+.end small { display: block; margin-top: 32px; color: var(--fg-3); font-size: 13px; }
+</style>
+</head>
+<body>
+
+<div class="notice"><div class="wrap">시안 페이지입니다. 사진과 연락처는 준비 중이에요.</div></div>
+
+<header class="cover"><div class="wrap">
+  <div class="label">Invitation / 초대장</div>
+  <h1>당신을<br>초대<br>합니다.</h1>
+  <p>고촌중앙교회 청년부가 이번 주일, 당신의 자리를 비워두었어요.</p>
+  <div class="meta"><span>매주 주일 13:30</span><span>별관 3F</span></div>
+  <div><a class="pill primary" href="https://crm.weseed.co.kr/land/7QO" target="_blank" rel="noopener">새가족 등록하기</a></div>
+</div></header>
+
+<main>
+  <section class="letter"><div class="wrap">
+    <div class="label">Letter</div>
+    <div class="body">
+      <p>안녕하세요, 이 카드를 받으신 분께.</p>
+      <p>새로운 곳에 처음 발을 들이는 일에는 작은 용기가 필요하다는 걸 압니다. 그 마음으로 이 페이지를 열어주셔서 고맙습니다.</p>
+      <p>우리 청년부에는 교회가 익숙한 사람도, 이제 막 궁금해진 사람도 함께 있습니다. 잘 몰라도 괜찮고, 그냥 앉아 있다 가셔도 괜찮습니다. 편한 옷차림으로 오세요. 따뜻한 밥 한 끼 같이 먹으면 좋겠습니다.</p>
+    </div>
+    <div class="sign">
+      <div class="ph" role="img" aria-label="목사님 사진 자리"></div>
+      <div><b>이용진 목사</b><span>고촌중앙교회 청년부 담당</span></div>
+    </div>
+    <p class="verse">수고하고 무거운 짐 진 자들아 다 내게로 오라 내가 너희를 쉬게 하리라<cite>마태복음 11:28</cite></p>
+  </div></section>
+
+  <section id="when"><div class="wrap">
+    <div class="label">When</div>
+    <h2>이번 주일에 만나요</h2>
+    <div class="dday"><b id="dday">SUN</b><span id="ddayText">매주 주일<br>오후 1시 30분 예배</span></div>
+    <div class="cal">
+      <div class="cal-title" id="calTitle"></div>
+      <div class="cal-grid" id="cal" aria-label="이달의 달력, 주일 강조"></div>
+    </div>
+    <dl class="times">
+      <div><dt>주일 13:30</dt><dd>청년 예배<small>별관 3층</small></dd></div>
+      <div><dt>예배 후</dt><dd>소그룹 모임<small>별관 3층</small></dd></div>
+      <div><dt>연중 행사</dt><dd>여름 수련회, 겨울 수련회<small>섬김이 훈련, 성경공부</small></dd></div>
+    </dl>
+  </div></section>
+
+  <section style="padding-top:0"><div class="wrap">
+    <div class="label">Photos</div>
+    <h2>우리의 일 년</h2>
+    <div class="gallery">
+      <figure class="ph a" style="--x:68%;--y:25%"><figcaption>사진 자리 · 주일 예배</figcaption></figure>
+      <figure class="ph b" style="--x:30%;--y:30%"><figcaption>여름 수련회</figcaption></figure>
+      <figure class="ph b" style="--x:70%;--y:60%"><figcaption>겨울 수련회</figcaption></figure>
+      <figure class="ph c" style="--x:40%;--y:20%"><figcaption>소그룹</figcaption></figure>
+      <figure class="ph c" style="--x:70%;--y:30%"><figcaption>섬김이 훈련</figcaption></figure>
+      <figure class="ph c" style="--x:30%;--y:70%"><figcaption>성경공부</figcaption></figure>
+    </div>
+  </div></section>
+
+  <section class="way" id="where"><div class="wrap">
+    <div class="label">Where</div>
+    <h2>오시는 길</h2>
+    <a href="https://kko.to/TzlGe8D19b" target="_blank" rel="noopener" aria-label="카카오맵에서 고촌중앙교회 제4교육관 위치 열기">
+    <svg class="map" viewBox="0 0 400 240" role="img" aria-label="약도. 김포골드라인 고촌역 1번 출구에서 북쪽으로 고촌우체국과 고촌중앙교회를 지나 장차로에 있는 제4교육관까지 도보 3분입니다.">
+      <path d="M0 180 L400 272" fill="none" stroke="#2a2a2a" stroke-width="26"/>
+      <text x="40" y="214" fill="#8a8a8a" font-size="11" font-family="IBM Plex Sans KR, sans-serif" transform="rotate(13 40 214)">김포대로</text>
+      <g fill="#212121">
+        <rect x="216" y="40" width="112" height="48" rx="3"/>
+        <rect x="216" y="128" width="96" height="36" rx="3"/>
+      </g>
+      <text x="272" y="69" text-anchor="middle" fill="#b9b9b9" font-size="12" font-family="IBM Plex Sans KR, sans-serif">고촌중앙교회</text>
+      <text x="264" y="151" text-anchor="middle" fill="#b9b9b9" font-size="12" font-family="IBM Plex Sans KR, sans-serif">고촌우체국</text>
+      <rect x="40" y="24" width="140" height="64" rx="3" fill="#f36458"/>
+      <text x="110" y="52" text-anchor="middle" fill="#fff" font-size="15" font-family="IBM Plex Sans KR, sans-serif" font-weight="500">제4교육관</text>
+      <text x="110" y="72" text-anchor="middle" fill="#fff" font-size="12" font-family="IBM Plex Sans KR, sans-serif">장차로 23</text>
+      <path d="M110 205 L200 176 V56 H184" fill="none" stroke="#55beff" stroke-width="2" stroke-dasharray="5 5"/>
+      <circle cx="110" cy="205" r="7" fill="#55beff"/>
+      <text x="110" y="232" text-anchor="middle" fill="#ffffff" font-size="12" font-family="IBM Plex Sans KR, sans-serif">고촌역 1번 출구</text>
+      <text x="300" y="200" text-anchor="middle" fill="#b9b9b9" font-size="12" font-family="IBM Plex Sans KR, sans-serif">도보 3분</text>
+    </svg>
+    </a>
+    <div class="addr">경기 김포시 고촌읍 장차로 23<small>고촌중앙교회 제4교육관 · (우) 10126 · 지번 고촌읍 신곡리 539-8</small></div>
+    <div class="btns">
+      <a class="pill primary" href="https://kko.to/TzlGe8D19b" target="_blank" rel="noopener">지도 열기</a>
+      <a class="pill" href="https://map.naver.com/p/search/%EA%B2%BD%EA%B8%B0%20%EA%B9%80%ED%8F%AC%EC%8B%9C%20%EA%B3%A0%EC%B4%8C%EC%9D%8D%20%EC%9E%A5%EC%B0%A8%EB%A1%9C%2023" target="_blank" rel="noopener">네이버 지도</a>
+      <button class="pill" type="button" data-copy="경기 김포시 고촌읍 장차로 23" data-label="주소 복사">주소 복사</button>
+    </div>
+    <dl class="how">
+      <div><dt>지하철</dt><dd>김포골드라인 고촌역 1번 출구, 도보 3분</dd></div>
+      <div><dt>찾는 법</dt><dd>출구에서 북쪽 길로 올라와 고촌우체국, 고촌행정복지센터를 지나면 고촌중앙교회가 보여요. 교회 앞 장차로를 따라 조금 더 가면 김포축산농협 옆에 제4교육관이 있어요.</dd></div>
+    </dl>
+  </div></section>
+
+  <section class="contact" id="call"><div class="wrap">
+    <div class="label">Contact</div>
+    <h2>궁금한 건 편하게 물어보세요</h2>
+    <ul>
+      <li><div class="who"><span>담당 목사</span><b>이용진 목사</b><i>연락처 준비 중</i></div></li>
+    </ul>
+  </div></section>
+
+  <section><div class="wrap">
+    <div class="label">First visit</div>
+    <h2>처음 오는 날</h2>
+    <ol class="flow">
+      <li><div><b>별관 3층으로 오세요</b><span>새가족팀이 자리까지 안내해 드려요.</span></div></li>
+      <li><div><b>함께 예배드려요</b><span>찬양과 말씀으로 약 1시간 진행돼요.</span></div></li>
+      <li><div><b>같이 밥 먹어요</b><span>부담되시면 예배만 드리고 가셔도 괜찮아요.</span></div></li>
+    </ol>
+    <div class="btns" style="grid-template-columns:1fr"><a class="pill primary" href="https://crm.weseed.co.kr/land/7QO" target="_blank" rel="noopener">새가족 등록하기</a></div>
+  </div></section>
+
+  <section class="end"><div class="wrap">
+    <h2>이번 주일, 별관 3층에서 기다릴게요.</h2>
+    <p>친구에게도 이 초대장을 전해주세요.</p>
+    <div class="btns">
+      <a class="pill" href="#where">길찾기</a>
+      <a class="pill" href="#call">연락하기</a>
+      <a class="pill primary" href="https://crm.weseed.co.kr/land/7QO" target="_blank" rel="noopener">새가족 등록</a>
+      <button class="pill" type="button" id="share" data-label="링크 복사" style="grid-column:1/-1">초대장 링크 복사</button>
+    </div>
+    <small>고촌중앙교회 청년부 · 경기 김포시 고촌읍 장차로 23</small>
+  </div></section>
+</main>
+
+<script>
+  // 다음 주일 오후 1시 30분을 기기 시간으로 계산합니다. 예배가 끝나면 다음 주로 넘어갑니다.
+  function nextService(now) {
+    var d = new Date(now);
+    d.setDate(now.getDate() + ((7 - now.getDay()) % 7));
+    d.setHours(13, 30, 0, 0);
+    if (now.getTime() >= d.getTime() + 90 * 60000) d.setDate(d.getDate() + 7);
+    return d;
+  }
+  var now = new Date(), target = nextService(now);
+  var today = new Date(now.getFullYear(), now.getMonth(), now.getDate());
+  var day = new Date(target.getFullYear(), target.getMonth(), target.getDate());
+  var diff = Math.round((day - today) / 86400000);
+  document.getElementById("dday").textContent = diff === 0 ? "D-DAY" : "D-" + diff;
+  document.getElementById("ddayText").innerHTML = (target.getMonth() + 1) + "월 " + target.getDate() + "일 주일<br>오후 1시 30분 예배";
+
+  var y = target.getFullYear(), m = target.getMonth();
+  document.getElementById("calTitle").textContent = y + "." + String(m + 1).padStart(2, "0");
+  var html = "일월화수목금토".split("").map(function (w, i) {
+    return '<div class="dow' + (i === 0 ? " sun" : "") + '">' + w + "</div>";
+  }).join("");
+  var first = new Date(y, m, 1).getDay(), last = new Date(y, m + 1, 0).getDate();
+  for (var i = 0; i < first; i++) html += "<div></div>";
+  for (var n = 1; n <= last; n++) {
+    var date = new Date(y, m, n), cls = [];
+    if (date.getTime() === day.getTime()) cls.push("target");
+    else if (date < today) cls.push("past");
+    else if (date.getDay() === 0) cls.push("sun");
+    html += '<div class="' + cls.join(" ") + '">' + n + "</div>";
+  }
+  document.getElementById("cal").innerHTML = html;
+
+  function flash(btn, msg) { btn.textContent = msg; setTimeout(function () { btn.textContent = btn.dataset.label; }, 2000); }
+  function copyFrom(btn, text) {
+    if (!navigator.clipboard) return flash(btn, "복사 실패");
+    navigator.clipboard.writeText(text).then(function () { flash(btn, "복사했어요"); }, function () { flash(btn, "복사 실패"); });
+  }
+  document.querySelector("[data-copy]").addEventListener("click", function () { copyFrom(this, this.dataset.copy); });
+  document.getElementById("share").addEventListener("click", function () { copyFrom(this, location.href); });
+</script>
+</body>
+</html>
